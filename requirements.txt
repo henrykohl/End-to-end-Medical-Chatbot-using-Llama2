@@ -7,6 +7,3 @@ pypdf
 python-dotenv
 ipywidgets
 langchain_community
-langchain-huggingface
-
--e .
