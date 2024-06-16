@@ -7,3 +7,4 @@ pypdf
 python-dotenv
 ipywidgets
 langchain_community
+-e . 
