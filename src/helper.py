@@ -1,8 +1,8 @@
 # from langchain.document_loaders import PyPDFLoader, DirectoryLoader ## Deprecated
 from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader ## Solution
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-# from langchain.embeddings import HuggingFaceEmbeddings ## Deprecated
-from langchain_huggingface import HuggingFaceEmbeddings ## Solution
+from langchain.embeddings import HuggingFaceEmbeddings ## Solution1: 安裝了 langchain_community 
+# from langchain_huggingface import HuggingFaceEmbeddings ## Solution2: 安裝了 langchain-huggingface
 
 
 #Extract data from the PDF
