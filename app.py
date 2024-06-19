@@ -14,8 +14,8 @@ app = Flask(__name__)
 
 load_dotenv()
 
-PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
-# PINECONE_API_ENV = os.environ.get('PINECONE_API_ENV')
+# PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY') # useless
+# PINECONE_API_ENV = os.environ.get('PINECONE_API_ENV') # Deprecated
 
 
 embeddings = download_hugging_face_embeddings()
@@ -47,26 +47,29 @@ qa=RetrievalQA.from_chain_type(
     return_source_documents=True, 
     chain_type_kwargs=chain_type_kwargs)
 
-
-"""範1"""
+# step1
 @app.route("/")
 def index():
     return render_template('chat.html')
 
+# step2
+@app.route("/get", methods=["GET", "POST"])
+def chat():
+    msg = request.form["msg"]
+    input = msg
+    print(input)
+    # result=qa({"query": input})     # Deprecated
+    result=qa.invoke({"query": input}) # Solution
+    print("Response : ", result["result"])
+    return str(result["result"])
+
 if __name__ == '__main__':
-    # app.run(debug= True)                             # 範1 - 1
-    app.run(host="0.0.0.0", port= 8080, debug= True)   # 範1 - 2
-
-# @app.route("/get", methods=["GET", "POST"])
-# def chat():
-#     msg = request.form["msg"]
-#     input = msg
-#     print(input)
-#     result=qa({"query": input})
-#     print("Response : ", result["result"])
-#     return str(result["result"])
+    # app.run(debug= True)                             # step1 - 1
+    app.run(host="0.0.0.0", port= 8080, debug= True)   # step1 - 2 & step2
 
 
 
-# if __name__ == '__main__':
-#     app.run(host="0.0.0.0", port= 8080, debug= True)
+
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port= 8080, debug= True)
