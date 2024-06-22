@@ -46,14 +46,17 @@ pypdf
 python-dotenv
 ```
 
-> 還需加入 (Lecture並不包含) `ipywidgets` 與 `langchain_community` 等兩個包，加入`langchain_community`後，`langchain==0.0.225`不能列在`requirements.txt`中，需要移除，或是改成`langchain`，`langchain`也不是需要的，可以不需要列在`requirements.txt`
+> 還需加入 (Lecture並不包含) `ipywidgets` 與 `langchain_community` 等兩個包，加入`langchain_community`後，(1) `langchain==0.0.225`不能列在`requirements.txt`中，需要移除，(2)或是改成`langchain`，(3)又或是`langchain`也可以不需要列在 `requirements.txt`
 >
-> <font color="red">注意`langchain==0.0.225`與`langchain_community`不能放在同一個**requirements.txt**，事實上安裝`langchain_community`就不需要安裝`langchain==0.0.225`，否則在執行`Pinecone.from_texts`或是`RetrievalQA.from_chain_type`時，會出現錯誤</font>
-> > 也就是不能執行
+> ```diff
+> + 注意`langchain==0.0.225`與`langchain_community`不能放在同一個**requirements.txt**，也就是安裝`langchain_community`，
+> + 就不需要安裝`langchain==0.0.225`，否則在執行`Pinecone.from_texts`或是`RetrievalQA.from_chain_type`時，會出現錯誤
+> ```
+> > 也就是不能這樣執行 packages 安裝
 > > ```bash
 > > pip install langchain==0.0.225 langchain_community
 > > ```
-> > 但可以執行 
+> > 但可以如此執行 packages 安裝
 > > ```bash
 > > pip install langchain==0.0.225
 > > pip install langchain_community
@@ -117,6 +120,9 @@ python-dotenv
 * *commit* "setup file added"
 
 * 完成 `.env` (寫入 `PINECONE_API_KEY = '...'`)
+> ```diff
+> - 當執行 clone 新的 repository 時，也要建立一個新的 `.env`
+> ```
 
 * 完成 `helper.py`
 > 完成後，在Pinecone DB的 Indexes 中，建立 `medical-bot` (<font color="red">Lecture 11</font>中用`trails.ipynb`建立的 Index 是 `medical-chatbot`)，
