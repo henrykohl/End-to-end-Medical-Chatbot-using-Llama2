@@ -1,6 +1,8 @@
 # End-to-end-Medical-Chatbot-using-Llama2
 
-<font color="red">Lecture 12</font>
+```diff
+@@ Lecture 12 @@
+```
 
 > 在 GitHub 建立 repository ，預先新增三個檔案
 > > `.gitignore` 選擇 Python
@@ -66,7 +68,6 @@ python-dotenv
 
 * 建立 `model/instruction.txt`
 > *commit* "model instruction added"
-> 下載 [llama-2-7b-chat.ggmlv3.q4_0.bin](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q4_0.bin?download=true) 模型 (3.79GB)
 
 * 建立 `trails.ipynb`，選擇 mchatbot 環境下的 python kernel
 
@@ -78,21 +79,32 @@ python-dotenv
 >
 > Dimension: `384` (根據 [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) 模型)
 
-* 用 `wget https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q4_0.bin --quiet` 下載
-> 當 llama-2-7b-chat.ggmlv3.q4_0.bin 下載完成後，放至於 /model 中
+* 下載 [llama-2-7b-chat.ggmlv3.q4_0.bin](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q4_0.bin?download=true) 模型 (3.79GB)
+> 第一種方式：從網頁上直接下載
+> 
+> 第二種方式：用指令下載
+> ```diff
+> - wget https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q4_0.bin --quiet
+> ```
+> > 當 llama-2-7b-chat.ggmlv3.q4_0.bin 下載完成後，放至於 /model 中
 >
 > 在 `.gitignore` 中新增 model/llama-2-7b-chat.ggmlv3.q4_0.bin
 >
 > *commit* "data loader added"
 
-* <font color="red">資料夾`.vscode`中settings.json用來解決Visual Studio Code Pylance (reportMissingImports)的問題</font>
+* 資料夾`.vscode`中settings.json用來解決Visual Studio Code Pylance (reportMissingImports)的問題</font>
 
 ---
-<font color="red">Lecture 13</font>
+```diff
+@@ Lecture 13 @@
+```
 
 * 建立 `template.py`，且執行
 
 * 把`trails.ipynb`移至`/research`下 (`/research`中原本空的`trails.ipynb`要被取代掉)
+> ```diff
+> - 注意，要執行 trails.ipynb 時，因為檔案路徑關係，不能在 /research 之下直接執行，所以要將 trails.ipynb 複製到上一層目錄才行
+> ```
 
 * *commit* "folder structure added"
 
