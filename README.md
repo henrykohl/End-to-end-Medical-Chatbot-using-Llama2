@@ -191,3 +191,30 @@ python-dotenv
 >sudo mkswap ~/swapfile
 >sudo swapon ~/swapfile
 ```
+
+```bash
+>git clone "Your-repository"
+```
+
+[How to Install Python 3.8 on Ubuntu 22.04](https://linuxgenie.net/how-to-install-python-3-8-on-ubuntu-22-04/)
+```bash
+>sudo add-apt-repository ppa:deadsnakes/ppa
+
+>sudo apt install python3.8 -y
+
+>python3.8 --version # check the version information
+```
+
+[create a venv having python3.8 as python3 On Ubuntu](https://stackoverflow.com/questions/62773433/python3-8-venv-not-working-with-python3-8-m-venv-env)
+```bash
+>cd End-to-end-Medical-Chatbot-using-Llama2/
+>sudo apt install python3.8 python3.8-venv python3-venv
+>python3.8 -m venv mchatbot
+>source mchatbot/bin/activate
+>python3 --version # check the version information in the virtual environment
+```
+
+
+
+
+
