@@ -23,17 +23,28 @@
 
 * 開啟 terminal 後，在 *Git bash* 建立 virtual environment，並啟動
 > virtualenv 方式
-> >`virtualenv mchatbot --python=python3.8`
->
-> >`source ./mchatbot/Scripts/activate`
->
+> >```bash
+> >virtualenv mchatbot --python=python3.8
+> >source ./mchatbot/Scripts/activate
+> >```
 > conda 方式 (-y表示遵循默認配置)
-> >`conda create -n mchatbot python=3.8 -y`
->
-> >`conda activate mchatbot`
+> >```bash
+> >conda create -n mchatbot python=3.8 -y
+> >conda activate mchatbot
+> >```
 
 * 建立 `requirements.txt`,並安裝(要花一些時間)
-> `ipywidgets` 與 `langchain_community`是自行加入，Lecture並不包含此倆，加入`langchain_community`後，`langchain==0.0.225`不能列在`requirements.txt`中，需要移除，或是改成`langchain`，`langchain`也不是需要的，可以不需要列在`requirements.txt`
+```text
+ctransformers==0.2.5
+sentence-transformers==2.2.2
+pinecone-client
+langchain==0.0.225
+flask
+pypdf
+python-dotenv
+```
+
+> 還需加入 (Lecture並不包含) `ipywidgets` 與 `langchain_community` 等兩個包，加入`langchain_community`後，`langchain==0.0.225`不能列在`requirements.txt`中，需要移除，或是改成`langchain`，`langchain`也不是需要的，可以不需要列在`requirements.txt`
 >
 > <font color="red">注意`langchain==0.0.225`與`langchain_community`不能放在同一個**requirements.txt**，事實上安裝`langchain_community`就不需要安裝`langchain==0.0.225`，否則在執行`Pinecone.from_texts`或是`RetrievalQA.from_chain_type`時，會出現錯誤</font>
 > > 也就是不能執行
