@@ -102,11 +102,12 @@ python-dotenv
 @@ Lecture 13 @@
 ```
 
-* 建立 `template.py`，且執行
+* 建立 `template.py`，且執行 `python template.py` 以建立必要的 資料夾 和 檔案
+> 在 `template.py` 中，不要建立空資料夾，所以資料夾 `static` 要改成 `static/.gitkeep` (比要好)
 
 * 把`trails.ipynb`移至`/research`下 (`/research`中原本空的`trails.ipynb`要被取代掉)
 > ```diff
-> - 注意，要執行 trails.ipynb 時，因為檔案路徑關係，不能在 /research 之下直接執行，所以要將 trails.ipynb 複製到上一層目錄才行
+> - 注意，要執行 trails.ipynb 時，因為檔案路徑關係，不要在 /research 之下直接執行，要將 trails.ipynb 複製到`/research`的上一層目錄才行
 > ```
 
 * *commit* "folder structure added"
@@ -183,6 +184,7 @@ python-dotenv
 
 >sudo apt install git curl unzip tar make sudo vim wget -y
 ```
+由於建立的 EC2 使用 micro 等級，只有 1GB 的 memory ，在 install package 時，很容易造成 low memory的 issue ，進而整個 EC2 instance 都當住，解決方式參考 [Running out of RAM while doing pip install on AWS EC2](https://stackoverflow.com/questions/78133882/running-out-of-ram-while-doing-pip-install-on-aws-ec2)
 
 ```bash
 >sudo fallocate -l 1G ~/swapfile
@@ -191,12 +193,13 @@ python-dotenv
 >sudo mkswap ~/swapfile
 >sudo swapon ~/swapfile
 ```
+clone 在 Github 的 repository
 
 ```bash
 >git clone "Your-repository"
 ```
 
-[How to Install Python 3.8 on Ubuntu 22.04](https://linuxgenie.net/how-to-install-python-3-8-on-ubuntu-22-04/)
+EC2 已安裝 python 3.10，但之後要在建立的 virtual environment中安裝 python 3.8，所以需先安裝 python 3.8 ，參考[How to Install Python 3.8 on Ubuntu 22.04](https://linuxgenie.net/how-to-install-python-3-8-on-ubuntu-22-04/)
 ```bash
 >sudo add-apt-repository ppa:deadsnakes/ppa
 
