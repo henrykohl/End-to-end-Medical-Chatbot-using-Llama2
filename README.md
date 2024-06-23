@@ -1,8 +1,13 @@
-# End-to-end-Medical-Chatbot-using-Llama2
+# **Foundational Generative AI**
+--([learning page](https://learn.ineuron.ai/course/foundational-generative-ai/656d8f170af8644aac926376))--
 
 ```diff
-@@ Lecture 12 @@
+@@ End-to-end-Medical-Chatbot-using-Llama2 @@
 ```
+
+## Lecture 12
+
+
 
 > 在 GitHub 建立 repository ，預先新增三個檔案
 > > `.gitignore` 選擇 Python
@@ -20,7 +25,7 @@
 >E:\gitstore\End-to-end-Medical-Chatbot-using-Llama2>code .
 >```
 
-## 以下步驟都在 VS Code 執行
+### 以下步驟都在 VS Code 環境中執行
 > 因為在 本機 Windows 7 環境下，`CTransformers`無法成功呼叫，所以實際上是在 [github.dev](https://github.dev/henrykohl/End-to-end-Medical-Chatbot-using-Llama2) 下實做。
 
 * 開啟 terminal 後，在 *Git bash* 建立 virtual environment，並啟動
@@ -98,9 +103,8 @@ python-dotenv
 * 資料夾`.vscode`中settings.json用來解決Visual Studio Code Pylance (reportMissingImports)的問題</font>
 
 ---
-```diff
-@@ Lecture 13 @@
-```
+
+## Lecture 13
 
 * 建立 `template.py`，且執行 `python template.py` 以建立必要的 資料夾 和 檔案
 > 在 `template.py` 中，不要建立空資料夾，所以資料夾 `static` 要改成 `static/.gitkeep` (比要好)
@@ -171,7 +175,7 @@ python-dotenv
 
 * *commit* "completed"
 
-* **注意** 若 clone 此 repository後，有兩個檔 (repository並沒有包含) 要加上 (對應前面兩項紅字說明)
+* **注意** 若 clone 此 repository後（在本機 或 在雲端--github.dev , aws  ），有兩個檔 (repository並沒有包含) 要加上 (對應前面兩項紅字說明)
 > 下載 `llama-2-7b-chat.ggmlv3.q4_0.bin` 
 > 
 > 建立 `.env`
@@ -179,7 +183,7 @@ python-dotenv
 
 ---
 
-# 在 AWS 上的步驟
+## 補充： 在 AWS 上的步驟
 
 ```bash
 >sudo apt update
@@ -234,8 +238,12 @@ cd  model
 - vi .env
 ```
 
-
-
+執行
+```bash
+>pip install sentence-transformers==2.2.2
+>pip install - r requirements.txt
+```
+**注意**，在AWS環境中 `requirements.txt` 不包含 `sentence-transformers==2.2.2` 
 
 
 
