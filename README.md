@@ -107,7 +107,7 @@ python-dotenv
 
 * 把`trails.ipynb`移至`/research`下 (`/research`中原本空的`trails.ipynb`要被取代掉)
 > ```diff
-> - 注意，要執行 trails.ipynb 時，因為檔案路徑關係，不要在 /research 之下直接執行，要將 trails.ipynb 複製到`/research`的上一層目錄才行
+> ! 注意，要執行 trails.ipynb 時，因為檔案路徑關係，不要在 /research 之下直接執行，要將 trails.ipynb 複製到`/research`的上一層目錄才行
 > ```
 
 * *commit* "folder structure added"
@@ -171,6 +171,12 @@ python-dotenv
 
 * *commit* "completed"
 
+* **注意** 若 clone 此 repository後，有兩個檔 (repository並沒有包含) 要加上 (對應前面兩項紅字說明)
+> 下載 `llama-2-7b-chat.ggmlv3.q4_0.bin` 
+> 
+> 建立 `.env`
+
+
 ---
 
 # 在 AWS 上的步驟
@@ -216,6 +222,19 @@ EC2 已安裝 python 3.10，但之後要在建立的 virtual environment中安�
 >source mchatbot/bin/activate
 >python3 --version # check the version information in the virtual environment
 ```
+
+在資料夾 /model 中，下載 ggml
+```diff
+cd  model
+- wget https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q4_0.bin --quiet
+```
+
+建立 `.env` (寫入 `PINECONE_API_KEY = '...'`)
+```diff
+- vi .env
+```
+
+
 
 
 
