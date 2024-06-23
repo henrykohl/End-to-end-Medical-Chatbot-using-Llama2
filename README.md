@@ -185,6 +185,8 @@ python-dotenv
 
 ## 補充： 在 AWS 上的步驟
 
+在 AWS console 上成功建立 EC2 instance 後，需要在 *Security* 中 **inbound rules** 新增 8080 的 Custom TCP port，*source*  為 `Anywhere-IPv4`，**CIDR** blocks 為 `0.0.0.0/0`
+
 ```bash
 >sudo apt update
 
@@ -245,6 +247,9 @@ cd  model
 ```
 **注意**，在AWS環境中 `requirements.txt` 不包含 `sentence-transformers==2.2.2` 
 
-
+最後執行
+```bash
+>python3 app.py
+```
 
 
